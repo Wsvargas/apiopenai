@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI API Demo</title>
+</head>
+<body>
+    <h1>Transformador Binario</h1>
+    <form id="numeroForm">
+        <label for="numero">Ingrese un número:</label>
+        <input type="text" id="numero" name="numero" required>
+        <button type="button" onclick="obtenerBinario()">Obtener Binario</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        function obtenerBinario() {
+            var numero = document.getElementById("numero").value;
+            fetch('/obtener_binario?numero=' + numero)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("resultado").innerText = "El número binario correspondiente es: " + data.respuesta;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById("resultado").innerText = "Error al obtener la respuesta.";
+                });
+        }
+    </script>
+</body>
+</html>
