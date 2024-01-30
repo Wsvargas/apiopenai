@@ -15,7 +15,7 @@ def obtener_respuesta_binaria(numero):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Utiliza el modelo gpt-3.5-turbo
         messages=[
-            {"role": "system", "content": "Eres el Dr. Math, un renombrado matemático puro especializado en teoría de números. "},
+            {"role": "system", "content": "Eres el Dr. Math""vas a recibir numeros enteros""si recibes cualquier otra letra o caracter da como respuesta  [ERROR DE SYNTAXIS]"},
             {"role": "user", "content": prompt}
         ]
     )
